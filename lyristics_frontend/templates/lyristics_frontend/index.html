@@ -1,0 +1,171 @@
+{% extends "lyristics_frontend/base.html" %}
+{#{% load staticfiles %}#}
+{#{% bootstrap_styles theme='cosmo' type='css' %}#}
+{##}
+{% block title %}
+Lyristics - The Lyric Analysis Search Engine
+{% endblock %}
+{##}
+{#{% block extra_css %}#}
+{#{% endblock extra_css %}#}
+{##}
+{% block jumbotron %}
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="text-center">Lyristics</h1>
+        <div id="custom-search-input">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="input-group col-md-12">
+                    <form id="main_search_form">
+                        <input type="text" id="main_search_box" class="search-query form-control" placeholder="Search for an Artist" />
+                        </form>
+                        <span class="input-group-btn">
+                            <button class="btn btn-danger" type="submit" form="main_search_form">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                </div>
+            </div>
+        </div>
+  </div>
+</div>
+{% endblock %}
+{% block container %}
+<div id="articles" class="container">
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-4">
+      <h2>Heading</h2>
+      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+      <h2>Heading</h2>
+      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+   </div>
+    <div class="col-md-4">
+      <h2>Heading</h2>
+      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{#{% block search_results %}#}
+
+{#{% if hits %}#}
+{% block search_results %}
+<div class="container hidden" id="results-container">
+   <hgroup class="mb20">
+       <h1>Search Results</h1>
+       <h2 class="lead">Found<strong id="results-count" class="text-danger"></strong>results for the search for <strong id="search-term" class="text-danger"></strong></h2>
+   </hgroup>
+   <section id="results" class="col-xs-12 col-sm-6 col-md-12">
+
+      {% if hits %}
+          {% for hit in hits %}
+              <p>hit</p>
+          {% endfor %}
+      {% endif %}
+{#   {% for hit in hits.hits %}#}
+{#    <article class="row">#}
+{#        <div class="col-xs-12 col-sm-12 col-md-3">#}
+{#            <a href="#" title="" class="thumbnail"><img src="http://cdn.quotationof.com/images/blah-quotes-7.jpg"/></a>#}
+{#        </div>#}
+{#        <div class="col-xs-12 col-sm-12 col-md-2">#}
+{#            <ul class="meta-search">#}
+{#                <li><i class="glyphicon glyphicon-calendar"></i> <span>02/15/10</span></li>#}
+{#                <li><i class="glyphicon glyphicon-time"></i> <span>4:28 pm</span></li>#}
+{#                <li><i class="glyphicon glyphicon-tags"></i> <span>People</span></li>#}
+{#            </ul>#}
+{#        </div>#}
+{#        <div class="col-xs-12 col-sm-12 col-md-7 excerpet">#}
+{#            <h3><a href="#" title="">{{ hit.source.artist_name }}</a></h3>#}
+{#            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>#}
+{#            <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>#}
+{#        </div>#}
+{#        <span class="clearfix borda"></span>#}
+{#    </article>#}
+{#   {% endfor %}#}
+   </section>
+</div>
+<article class="search_result_template row hidden">
+    <div class="col-xs-12 col-sm-12 col-md-3">
+        <a href="#" title="" class="thumbnail "><img class="album-image" /></a>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-2">
+        <ul class="meta-search">
+            <li><i class="glyphicon glyphicon-calendar"></i> <span class="date-scraped"></span></li>
+            <li><i class="glyphicon glyphicon-time"></i> <span class="time-scraped"></span></li>
+            <li><i class="glyphicon glyphicon-tags"></i><span class="property-status"></span></li>
+        </ul>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-7 excerpt">
+        <h3><a href="#" title=""></a></h3>
+        <p></p>
+{#        <span class="plus"><a href="#" title=""><i class="glyphicon glyphicon-plus"></i></a></span>#}
+    </div>
+    <span class="clearfix borda"></span>
+</article>
+{% endblock %}
+{#		<article class="search-result row">#}
+{#			<div class="col-xs-12 col-sm-12 col-md-3">#}
+{#				<a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/people" alt="Lorem ipsum" /></a>#}
+{#			</div>#}
+{#			<div class="col-xs-12 col-sm-12 col-md-2">#}
+{#				<ul class="meta-search">#}
+{#					<li><i class="glyphicon glyphicon-calendar"></i> <span>02/15/2014</span></li>#}
+{#					<li><i class="glyphicon glyphicon-time"></i> <span>4:28 pm</span></li>#}
+{#					<li><i class="glyphicon glyphicon-tags"></i> <span>People</span></li>#}
+{#				</ul>#}
+{#			</div>#}
+{#			<div class="col-xs-12 col-sm-12 col-md-7 excerpet">#}
+{#				<h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>#}
+{#				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>#}
+{#                <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>#}
+{#			</div>#}
+{#			<span class="clearfix borda"></span>#}
+{#		</article>#}
+{##}
+{#        <article class="search-result row">#}
+{#			<div class="col-xs-12 col-sm-12 col-md-3">#}
+{#				<a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/food" alt="Lorem ipsum" /></a>#}
+{#			</div>#}
+{#			<div class="col-xs-12 col-sm-12 col-md-2">#}
+{#				<ul class="meta-search">#}
+{#					<li><i class="glyphicon glyphicon-calendar"></i> <span>02/13/2014</span></li>#}
+{#					<li><i class="glyphicon glyphicon-time"></i> <span>8:32 pm</span></li>#}
+{#					<li><i class="glyphicon glyphicon-tags"></i> <span>Food</span></li>#}
+{#				</ul>#}
+{#			</div>#}
+{#			<div class="col-xs-12 col-sm-12 col-md-7">#}
+{#				<h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>#}
+{#				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>#}
+{#                <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>#}
+{#			</div>#}
+{#			<span class="clearfix borda"></span>#}
+{#		</article>#}
+{##}
+{#		<article class="search-result row">#}
+{#			<div class="col-xs-12 col-sm-12 col-md-3">#}
+{#				<a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/sports" alt="Lorem ipsum" /></a>#}
+{#			</div>#}
+{#			<div class="col-xs-12 col-sm-12 col-md-2">#}
+{#				<ul class="meta-search">#}
+{#					<li><i class="glyphicon glyphicon-calendar"></i> <span>01/11/2014</span></li>#}
+{#					<li><i class="glyphicon glyphicon-time"></i> <span>10:13 am</span></li>#}
+{#					<li><i class="glyphicon glyphicon-tags"></i> <span>Sport</span></li>#}
+{#				</ul>#}
+{#			</div>#}
+{#			<div class="col-xs-12 col-sm-12 col-md-7">#}
+{#				<h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>#}
+{#				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>#}
+{#                <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>#}
+{#			</div>#}
+{#			<span class="clearfix border"></span>#}
+{#		</article>#}
+{##}
+{#	</section>#}
+{#</div>#}
