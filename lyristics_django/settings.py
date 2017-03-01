@@ -23,7 +23,7 @@ ES_CLIENT = Elasticsearch(hosts=[{'host': 'localhost', 'port': 9200}])
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ci(_a2j!9_!txp4im6%d*5i_h2fp$axezxs1hzxgg@t7839eev'
+SECRET_KEY = lhhkhlkhlkhlkh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
